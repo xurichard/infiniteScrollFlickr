@@ -21,7 +21,8 @@ def main():
 	
 	if response.ok:
 		response = json.loads(response.text)
-		print response
+		for photo_json in response['photoset']['photo']:
+			print get_photo_url(photo_json)
 
 
 user_id = '139169754@N02'
@@ -42,6 +43,13 @@ def call_api(method, optional, additional_params = ''):
 	print "running query: " + query
 	return requests.get(query)
 
+def get_photo_url(flickr_json):
+	farm_id = flickr_json['farm']
+	server_id = flickr_json['server']
+	photo_id = flickr_json['id']
+	photo_secret = flickr_json['secret']
+	size = 'z'
+	return 'https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg'%(farm_id, server_id, photo_id, photo_secret, size)
 
 if __name__ == '__main__':
 	main()
