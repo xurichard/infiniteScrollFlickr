@@ -12,9 +12,16 @@ def main():
 
 	if response.ok:
 		response = json.loads(response.text)
-		print response['photosets']['photoset'][0]
+		set_id = response['photosets']['photoset'][0]['id']
 	else:
 		print 'something went wrong: ' + query
+
+
+	response = call_api('flickr.photosets.getPhotos', True, '&photoset_id='+set_id)
+	
+	if response.ok:
+		response = json.loads(response.text)
+		print response
 
 
 user_id = '139169754@N02'
@@ -26,10 +33,13 @@ per_page = 10
 privacy_filter = 1
 
 
-def call_api(method, optional):
+def call_api(method, optional, additional_params = ''):
 	query = 'https://api.flickr.com/services/rest/?&method=%s&api_key=%s&user_id=%s&format=json&nojsoncallback=1'%(method, api_key, user_id)
 	if optional:
 		query += '&per_page=%d&privacy_filter=%d'%(per_page, privacy_filter)
+	if additional_params:
+		query += additional_params
+	print "running query: " + query
 	return requests.get(query)
 
 
