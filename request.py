@@ -18,14 +18,14 @@ def main():
 	else:
 		print 'something went wrong: ' + query
 
-	print set_ids
+	set_id = set_ids[0]
 
-	# response = call_api('flickr.photosets.getPhotos', True, '&photoset_id='+set_id)
+	response = call_api('flickr.photosets.getPhotos', True, '&photoset_id='+set_id)
 	
-	# if response.ok:
-	# 	response = json.loads(response.text)
-	# 	for photo_json in response['photoset']['photo']:
-	# 		print get_photo_url(photo_json)
+	if response.ok:
+		response = json.loads(response.text)
+		for photo_json in response['photoset']['photo']:
+			print get_photo_url(photo_json)
 
 
 user_id = '139169754@N02'

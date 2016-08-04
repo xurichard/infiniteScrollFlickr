@@ -5,15 +5,29 @@ var $grid = $('.grid').masonry({
   itemSelector: '.grid-item'
 });
 
+var photosets = []
 
-// var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
 var flickerAPI = "https://api.flickr.com/services/rest/?&method=flickr.photosets.getList&api_key=41dd3aff041c00c52febdef9786a9ca0&user_id=139169754@N02&format=json&nojsoncallback=1&per_page=10&privacy_filter=1";
 $.getJSON(flickerAPI, {
   format: "json"
 })
 .done(function( data ) {
-  console.log(data)
+  photosets = data.photosets.photoset
 });
+
+for(i = 0; i < photosets.length; i ++ ){
+  var p = photos[i]
+  var url = "https://farm" + p.farm + ".staticflickr.com/" + p.server + "/" + p.id + "_" + p.secret + "_z.jpg"
+}
+
+// var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+// $.getJSON( flickerAPI, {
+//   tags: "mount rainier",
+//   tagmode: "any",
+//   format: "json"
+// })
+// .done(function( data ) {
+//   console.log(data)
 //   $.each( data.items, function( i, item ) {
 //     $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
 //     if ( i === 3 ) {
@@ -23,6 +37,14 @@ $.getJSON(flickerAPI, {
 // });
 
 
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+        var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+    // make jQuery object
+    var $elems = $( elems );
+    $grid.append( $elems ).masonry( 'appended', $elems );
+    }
+};
 
 
 $('.append-button').on( 'click', function() {
