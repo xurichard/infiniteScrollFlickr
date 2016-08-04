@@ -5,6 +5,26 @@ var $grid = $('.grid').masonry({
   itemSelector: '.grid-item'
 });
 
+
+// var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+var flickerAPI = "https://api.flickr.com/services/rest/?&method=flickr.photosets.getList&api_key=41dd3aff041c00c52febdef9786a9ca0&user_id=139169754@N02&format=json&nojsoncallback=1&per_page=10&privacy_filter=1";
+$.getJSON(flickerAPI, {
+  format: "json"
+})
+.done(function( data ) {
+  console.log(data)
+});
+//   $.each( data.items, function( i, item ) {
+//     $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+//     if ( i === 3 ) {
+//       return false;
+//     }
+//   });
+// });
+
+
+
+
 $('.append-button').on( 'click', function() {
   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
   // make jQuery object
