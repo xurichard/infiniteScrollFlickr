@@ -1,8 +1,8 @@
 // external js: masonry.pkgd.js
-var $grid = $('.grid').masonry({
-  fitWidth: true,
-  itemSelector: '.grid-item'
-});
+// var $grid = $('.grid').masonry({
+//   fitWidth: true,
+//   itemSelector: '.grid-item'
+// });
 
 var photosets = []
 
@@ -23,7 +23,6 @@ $.getJSON(flickerAPI, {
 
 });
 
-
 var all_photos = []
 var all_photos_index = 0
 
@@ -40,44 +39,6 @@ var getphotos = function( photoset ){
   })
 };
 
-// var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
-// $.getJSON( flickerAPI, {
-//   tags: "mount rainier",
-//   tagmode: "any",
-//   format: "json"
-// })
-// .done(function( data ) {
-//   console.log(data)
-//   $.each( data.items, function( i, item ) {
-//     $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
-//     if ( i === 3 ) {
-//       return false;
-//     }
-//   });
-// });
-
-
-window.onscroll = function(ev) {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-      var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-      // make jQuery object
-      var $elems = $( elems );
-      $grid.append( $elems ).masonry( 'appended', $elems );
-    }
-};
-
-$('.append-button').on( 'click', function() {
-  var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-  // make jQuery object
-  var $elems = $( elems );
-  $grid.append( $elems ).masonry( 'appended', $elems );
-});
-
-// while ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-//   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-//   var $elems = $( elems );
-//   $grid.append( $elems ).masonry( 'appended', $elems );
-// }
 
 
 
@@ -91,3 +52,62 @@ function getItemElement() {
   elem.appendChild(img)
   return elem;
 }
+
+
+function getItems(){
+  return $( [getItemElement(), getItemElement(), getItemElement()])
+}
+
+
+$( function() {
+
+  var $grid = $('#grid').masonry({
+    itemSelector: '.item',
+    fitWidth: true,
+  });
+
+  $('#load-images').click( function() {
+    var $items = getItems();
+    $grid.append( $items ).masonry( 'appended', $items );
+
+    // // hide by default
+    // $items.hide();
+    // // append to container
+    // $container.append( $items );
+    // $items.imagesLoaded().progress( function( imgLoad, image ) {
+    //   // get item
+    //   // image is imagesLoaded class, not <img>
+    //   // <img> is image.img
+    //   var $item = $( image.img ).parents('.item');
+    //   // un-hide item
+    //   $item.show();
+    //   // masonry does its thing
+    //   $container.masonry( 'appended', $item );
+    // });
+  });
+  
+});
+
+
+
+
+
+
+
+
+
+// window.onscroll = function(ev) {
+//     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+//       var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+//       // make jQuery object
+//       var $elems = $( elems );
+//       $grid.append( $elems ).masonry( 'appended', $elems );
+//     }
+// };
+
+// $('.append-button').on( 'click', function() {
+//   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+//   // make jQuery object
+//   var $elems = $( elems );
+//   $grid.append( $elems ).masonry( 'appended', $elems );
+// });

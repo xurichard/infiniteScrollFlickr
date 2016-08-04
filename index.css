@@ -1,3 +1,5 @@
+/* 
+
 * { box-sizing: border-box; }
 
 body { font-family: sans-serif; }
@@ -6,12 +8,15 @@ html { overflow-y: scroll; }
 
 /* ---- grid ---- */
 
+/*
 .grid {
   background: #EEE;
   margin: 0 auto;
 }
 
 /* clearfix */
+
+/*
 .grid:after {
   content: '';
   display: block;
@@ -20,7 +25,7 @@ html { overflow-y: scroll; }
 
 /* ---- grid-item ---- */
 
-.grid-item {
+/* .grid-item {
   float: left;
   width: 33.333%;
   border: 2px solid #333;
@@ -37,3 +42,25 @@ html { overflow-y: scroll; }
 button {
   font-size: 20px;
 }
+
+*/
+
+
+body { font-family: sans-serif; }
+
+#container {
+  background: #DDD;
+  max-width: 1000px;
+}
+
+.grid-item {
+  width: 200px;
+  float: left;
+}
+
+.grid-item img {
+  display: block;
+  width: 100%;
+}
+
+button { font-size: 18px; } 
