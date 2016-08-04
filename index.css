@@ -8,6 +8,7 @@ html { overflow-y: scroll; }
 
 .grid {
   background: #EEE;
+  margin: 0 auto;
 }
 
 /* clearfix */
@@ -20,13 +21,12 @@ html { overflow-y: scroll; }
 /* ---- grid-item ---- */
 
 .grid-item {
-  float:left;
+  float: left;
   width: 33.333%;
-  height: 120px;
-  
   border: 2px solid #333;
   border-color: hsla(0, 0%, 0%, 0.5);
   border-radius: 5px;
+  display: inline-block;
 }
 
 .grid-item img {

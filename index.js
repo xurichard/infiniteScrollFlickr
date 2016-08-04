@@ -1,6 +1,6 @@
 // external js: masonry.pkgd.js
 var $grid = $('.grid').masonry({
-  columnWidth: 160,
+  fitWidth: true,
   itemSelector: '.grid-item'
 });
 
@@ -15,6 +15,12 @@ $.getJSON(flickerAPI, {
   $.each( photosets, function(i, photoset){
     getphotos(photoset)
   })
+  // while ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+  //   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+  //   var $elems = $( elems );
+  //   $grid.append( $elems ).masonry( 'appended', $elems );
+  // }
+
 });
 
 
@@ -66,6 +72,14 @@ $('.append-button').on( 'click', function() {
   var $elems = $( elems );
   $grid.append( $elems ).masonry( 'appended', $elems );
 });
+
+// while ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+//   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
+//   var $elems = $( elems );
+//   $grid.append( $elems ).masonry( 'appended', $elems );
+// }
+
+
 
 // create <div class="grid-item"></div>
 function getItemElement() {
