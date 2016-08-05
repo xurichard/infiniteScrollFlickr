@@ -52,32 +52,29 @@ html { overflow-y: scroll; }
 
 body { font-family: sans-serif; }
 
-/* ---- grid ---- */
 
 .container {
   background: #DDD;
 }
 
-/* clear fix */
 .container:after {
   content: '';
   display: block;
   clear: both;
 }
 
-/* ---- .grid-item ---- */
-
 .item {
   float: left;
-  width: 33.333%;
-  border: 2px solid #333;
-  border-color: hsla(0, 0%, 0%, 0.5);
-  border-radius: 5px;
-  display: inline-block;
+  width: 33%;
 }
 
+.grid-sizer{
+  width: 33%;
+}
 
 .item img {
   display: block;
-  max-width: 100%;
+  width: 100%;
 }
+
+button { font-size: 18px; } 

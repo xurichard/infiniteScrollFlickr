@@ -58,31 +58,28 @@ function getItems(){
   return $( [getItemElement(), getItemElement(), getItemElement()])
 }
 
-$( function() {
 
-  var $container = $('#container').masonry({
-    itemSelector: '.item',
-    fitWidth: true,
-  });
+var $container = $('#container').masonry({
+  itemSelector: '.item',
+  columnWidth: 10
+});
 
-  $('#load-images').click( function() {
-    var $items = getItems();
-    // hide by default
-    $items.hide();
-    // append to container
-    $container.append( $items );
-    $items.imagesLoaded().progress( function( imgLoad, image ) {
-      // get item
-      // image is imagesLoaded class, not <img>
-      // <img> is image.img
-      var $item = $( image.img ).parents('.item');
-      // un-hide item
-      $item.show();
-      // masonry does its thing
-      $container.masonry( 'appended', $item );
-    });
+$('#load-images').click( function() {
+  var $items = getItems();
+  // hide by default
+  $items.hide();
+  // append to container
+  $container.append( $items );
+  $items.imagesLoaded().progress( function( imgLoad, image ) {
+    // get item
+    // image is imagesLoaded class, not <img>
+    // <img> is image.img
+    var $item = $( image.img ).parents('.item');
+    // un-hide item
+    $item.show();
+    // masonry does its thing
+    $container.masonry( 'appended', $item );
   });
-  
 });
 
 
