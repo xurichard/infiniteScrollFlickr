@@ -1,8 +1,4 @@
-// external js: masonry.pkgd.js
-// var $grid = $('.grid').masonry({
-//   fitWidth: true,
-//   itemSelector: '.grid-item'
-// });
+// external js: masonry.pkgd.js, imagesloaded.pkgd.min.js, jquery.min.js
 
 var photosets = []
 
@@ -14,13 +10,7 @@ $.getJSON(flickerAPI, {
   photosets = data.photosets.photoset
   $.each( photosets, function(i, photoset){
     getphotos(photoset)
-  })
-  // while ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-  //   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-  //   var $elems = $( elems );
-  //   $grid.append( $elems ).masonry( 'appended', $elems );
-  // }
-
+  });
 });
 
 var all_photos = []
@@ -35,11 +25,10 @@ var getphotos = function( photoset ){
     $.each( data.photoset.photo, function( i, p ) {
       var url = "https://farm" + p.farm + ".staticflickr.com/" + p.server + "/" + p.id + "_" + p.secret + "_z.jpg"
       all_photos.push(url)
-    })
+    });
+  appendPhotos(1); // hacky, but first album should be loaded already
   })
 };
-
-
 
 
 // create <div class="grid-item"></div>
@@ -53,51 +42,41 @@ function getItemElement() {
   return elem;
 }
 
-
-function getItems(){
-  return $( [getItemElement(), getItemElement(), getItemElement()])
+function appendPhotos(num){
+  if(all_photos.length > num && all_photos_index < all_photos.length){
+    var photos = []
+    for(i = 0; i < num; i++){
+      photos.push(getItemElement())
+    }
+    var $items = $(photos)
+    // hide by default
+    $items.hide();
+    // append to container
+    $container.append( $items );
+    $items.imagesLoaded().progress( function( imgLoad, image ) {
+      // get item
+      // image is imagesLoaded class, not <img>
+      // <img> is image.img
+      var $item = $( image.img ).parents('.item');
+      // un-hide item
+      $item.show();
+      // masonry does its thing
+      $container.masonry( 'appended', $item );
+    });
+  }
 }
-
 
 var $container = $('#container').masonry({
   itemSelector: '.item',
-  columnWidth: 10
-});
-
-$('#load-images').click( function() {
-  var $items = getItems();
-  // hide by default
-  $items.hide();
-  // append to container
-  $container.append( $items );
-  $items.imagesLoaded().progress( function( imgLoad, image ) {
-    // get item
-    // image is imagesLoaded class, not <img>
-    // <img> is image.img
-    var $item = $( image.img ).parents('.item');
-    // un-hide item
-    $item.show();
-    // masonry does its thing
-    $container.masonry( 'appended', $item );
-  });
+  columnWidth: 1
 });
 
 
-// window.onscroll = function(ev) {
-//     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-//       var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-//       // make jQuery object
-//       var $elems = $( elems );
-//       $grid.append( $elems ).masonry( 'appended', $elems );
-//     }
-// };
-
-// $('.append-button').on( 'click', function() {
-//   var elems = [ getItemElement(), getItemElement(), getItemElement() ];
-//   // make jQuery object
-//   var $elems = $( elems );
-//   $grid.append( $elems ).masonry( 'appended', $elems );
-// });
+window.onscroll = function(ev) {
+    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+      appendPhotos(3);
+    }
+};
 
 
 
