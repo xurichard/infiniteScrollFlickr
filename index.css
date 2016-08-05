@@ -45,22 +45,39 @@ button {
 
 */
 
+* { box-sizing: border-box; }
+
+/* force scrollbar */
+html { overflow-y: scroll; }
 
 body { font-family: sans-serif; }
 
-#container {
+/* ---- grid ---- */
+
+.container {
   background: #DDD;
-  max-width: 1000px;
 }
 
-.grid-item {
-  width: 200px;
-  float: left;
-}
-
-.grid-item img {
+/* clear fix */
+.container:after {
+  content: '';
   display: block;
-  width: 100%;
+  clear: both;
 }
 
-button { font-size: 18px; } 
+/* ---- .grid-item ---- */
+
+.item {
+  float: left;
+  width: 33.333%;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+  display: inline-block;
+}
+
+
+.item img {
+  display: block;
+  max-width: 100%;
+}
