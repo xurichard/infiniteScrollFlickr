@@ -55,6 +55,20 @@ def get_photo_url(flickr_json):
 	return 'https://farm%s.staticflickr.com/%s/%s_%s_%s.jpg'%(farm_id, server_id, photo_id, photo_secret, size)
 
 if __name__ == '__main__':
-	main()
+	method = 'flickr.people.getPublicPhotos'
+	query = 'https://api.flickr.com/services/rest/?&method=%s&api_key=%s&user_id=%s&format=json&nojsoncallback=1'%(method, api_key, user_id)
+	query += '&extras=url_z'
+
+	response = requests.get(query)
+	if response.ok:
+		response = json.loads(response.text)
+	
+		for link in response['photos']['photo']:
+			print link['url_z']
+
+	print query
+
+
+	# main()
 
 
