@@ -19,5 +19,8 @@
 	<script src="{% static 'photos/index.js' %}"></script>
 	<script>
 		var all_photos = {{ photos|safe }};
+		var all_photos_index = 0;
+
+		appendPhotos(10);
 	</script>
 </html>

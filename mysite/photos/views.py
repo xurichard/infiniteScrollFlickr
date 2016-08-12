@@ -24,7 +24,7 @@ def index(request):
 		response = json.loads(response.text)
 	
 		for link in response['photos']['photo']:
-			context['photos'].append(link['url_z'])
+			context['photos'].append(str(link['url_z']))
 
 	return render(request, 'photos/index.html', context)
 
