@@ -3,7 +3,6 @@ from django.http import HttpResponse
 
 from .models import *
 
-
 import requests
 import json
 
@@ -27,5 +26,5 @@ def index(request):
 		for link in response['photos']['photo']:
 			context['photos'].append(link['url_z'])
 
-	return render(request, 'mainPage/index.html', context)
+	return render(request, 'photos/index.html', context)
 
