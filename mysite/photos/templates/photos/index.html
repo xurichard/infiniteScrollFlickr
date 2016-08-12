@@ -18,6 +18,6 @@
 	<script src="https://npmcdn.com/imagesloaded@4.1.0/imagesloaded.pkgd.min.js"></script>
 	<script src="{% static 'photos/index.js' %}"></script>
 	<script>
-		var all_photos = {{ photos }};
+		var all_photos = {{ photos|safe }};
 	</script>
 </html>
