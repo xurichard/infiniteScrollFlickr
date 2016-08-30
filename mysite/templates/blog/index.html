@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Richard Xu</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'mainPage/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'blog/main.css' %}" />
+		<style type="text/css">
+		@font-face {
+			font-family: 'ManhattanDarling';
+			font-style: normal;
+			font-weight: normal;
+			src: url("{% static 'mainPage/ManhattanDarling/OTF/ManhattanDarling-Regular.otf' %}") format('truetype');
+		}
+		</style>
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="{% url 'mainPage:index' %}" style="font-family:ManhattanDarling; font-size:150%">Richard Xu</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="{% url 'mainPage:index' %}">Home</a></li>
+								<li><a href="{% url 'about:index' %}">About Me</a></li>
+								<li><a href="{% url 'photos:index' %}">Photography</a></li>
+								<li><a href="{% url 'blog:index' %}">Blog</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" style="background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url({% static 'mainPage/images/background2.jpg'%}); background-size: 100%;">
+						<div class="inner">
+							<div class="logo"><span class="icon" ><img src="{% static 'mainPage/images/RX-white.png' %}" style="height:50%; width:50%;text-align: center;margin-top:25%"></span></div>
+							<h2 style="font-family: ManhattanDarling, Helvetica, sans-serif;font-size:4em;letter-spacing: 0.2em;">Richard Xu</h2>
+							<p> Just my personal blog. <br>
+								Updated occasionally </p>
+						</div>
+					</section>
+
+				<section id="one" class="wrapper spotlight style3">
+				<!-- Wrapper -->
+					<section id="wrapper">
+								<div id="main">
+									{% for post in posts %}
+								<!-- Post -->
+									<article class="post" style="color:black">
+										<header>
+											<div class="title">
+												<h2 style="color:black">{{ post.title }}</h2>
+												<p>{{ post.subtitle }}</p>
+											</div>
+											<div class="meta">
+												<time class="published" datetime="2015-11-01">{{ post.date }}</time>
+												{{ post.author }} <img src="images/avatar.jpg" alt="" /> 
+											</div>
+										</header>
+										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<p>{{ post.body }}</p>
+									</article>
+									{% endfor %}
+
+								</div>
+					</section>
+				</section>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="{% static 'mainPage/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'mainPage/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

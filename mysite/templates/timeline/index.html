@@ -1,0 +1,199 @@
+{% load static %}
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Richard Xu</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="{% static 'mainPage/assets/css/main.css' %}" />
+		<link rel="stylesheet" href="{% static 'timeline/agency.css' %}" />
+		<style type="text/css">
+		@font-face {
+			font-family: 'ManhattanDarling';
+			font-style: normal;
+			font-weight: normal;
+			src: url("{% static 'mainPage/ManhattanDarling/OTF/ManhattanDarling-Regular.otf' %}") format('truetype');
+		}
+		</style>
+	</head>
+	<body>
+
+		<!-- Page Wrapper -->
+			<div id="page-wrapper">
+
+				<!-- Header -->
+					<header id="header" class="alt">
+						<h1><a href="{% url 'mainPage:index' %}" style="font-family:ManhattanDarling; font-size:150%">Richard Xu</a></h1>
+						<nav>
+							<a href="#menu">Menu</a>
+						</nav>
+					</header>
+
+				<!-- Menu -->
+					<nav id="menu">
+						<div class="inner">
+							<h2>Menu</h2>
+							<ul class="links">
+								<li><a href="{% url 'mainPage:index' %}">Home</a></li>
+								<li><a href="{% url 'about:index' %}">About Me</a></li>
+								<li><a href="{% url 'photos:index' %}">Photography</a></li>
+								<li><a href="{% url 'blog:index' %}">Blog</a></li>
+							</ul>
+							<a href="#" class="close">Close</a>
+						</div>
+					</nav>
+
+				<!-- Banner -->
+					<section id="banner" style="background-image: url({% static 'mainPage/images/timeline.jpg'%});background-size: 100%;">
+						<div class="inner">
+							<div class="logo"><span class="icon" ><img src="{% static 'mainPage/images/RX-white.png' %}" style="height:50%; width:50%;text-align: center;margin-top:25%"></span></div>
+							<h2 style="font-family: ManhattanDarling, Helvetica, sans-serif;font-size:4em;letter-spacing: 0.2em;">About Me</h2>
+							<p> Get to know me. </p>
+						</div>
+					</section>
+
+				<section id="wrapper">
+					<section id="one" class="wrapper spotlight style1">
+
+						<div class="container inner">
+				                    <ul class="timeline">
+				                        <li>
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/gameStart.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>1995</h4>
+				                                    <h4 class="subheading">Game Start</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">I was born in the quiet town of Walnut Creek, California. My parents had moved to the states a couple years ago, and were eager to start a family in the technological bubble called Silicon Valley. My dad was a material Scientist and my mom a registered nurse, and this was the start of my adventure!</p>
+				                                </div>
+				                            </div>
+				                        </li>
+				                        <li class="timeline-inverted">
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/portland.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>Sometime in 1998</h4>
+				                                    <h4 class="subheading">Portlandia</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">Three years after I was born, my dad got relocated (thank you Fujitsu) and we moved to Beaverton, a small suburb of Portland, Oregon. In the state that was 99% forest, I grew to love the outdoors. I started discovering my interests as wide as they were, from soccer and swimming to playing with robots and gaming.</p>
+				                                </div>
+				                            </div>
+				                        </li>
+				                        <li>
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/longhorn.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>August 23,2004</h4>
+				                                    <h4 class="subheading">The day I became a cowboy</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">But eventually, we had to move again, this time to Austin, Texas. I moved in 5th grade and I was that new kid in class. Luckily, southern hospitality and tons of other Asian kids in my class gave me the opportunity to make many friends that I still talk to today, until...</p>
+				                                </div>
+				                            </div>
+				                        </li>
+				                        <li class="timeline-inverted">
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/seattle.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>August 23, 2011</h4>
+				                                    <h4 class="subheading">Sleepless in Seattle</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">I moved again. And this time, it sucked. I moved away from all my friends into the rainy, gloomy Bellevue, WA, near Seattle. But in retrospect, it wasn't that bad, I made new friends, and grew in my interest in chess, knowledge bowl, model United Nations, philosophy and robotics. Yeah, I think I've come to adore Seattle weather.</p>
+				                                </div>
+				                            </div>
+				                        </li>
+				                        <li>
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/goldenGate.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>August 23, 2013</h4>
+				                                    <h4 class="subheading">Building, Berkeley and the Bay Area</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">But nothing beats California sunshine, and that's where I am now, in sunny, liberal, beautiful Berkeley, California. I love being close to the bay and being back in Silicon Valley! And I look forward to my next few years here.
+				                                    </p>
+				                                </div>
+				                            </div>
+				                        </li>
+
+				                        <li class="timeline-inverted">
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/ucsf-logo.png' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>June 1, 2014</h4>
+				                                    <h4 class="subheading">UCWhereNow?</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">Over the summer of 2014, I worked at UCSF as an intern in the global Health division. I really got a sense of global health disparities in this position and it really drove me to focus my career and research on leveling the playing field for everyone no matter race, gender or location.</p>
+				                                </div>
+				                            </div>
+				                        </li>
+
+				                        <li>
+				                        <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/bio_rad_logo.jpg' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>June 15, 2015</h4>
+				                                    <h4 class="subheading">Working Hard</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">Over this past summer (2015), I worked at Bio-Rad working on an internal tool to provide dynamic analysis on Digital Droplet PCR information. I honestly didn't find the project too exciting or novel, but the experience of working in an established company on an active project was well worth the 2 hour commute and sweltering heat.</p>
+				                                </div>
+				                            </div>
+				                        </li>
+
+				                        <li class="timeline-inverted">
+				                            <div class="timeline-image">
+				                                <img class="img-circle img-responsive" src="{% static 'timeline/images/tubeMogul.png' %}" alt="" style="height:100%">
+				                            </div>
+				                            <div class="timeline-panel">
+				                                <div class="timeline-heading">
+				                                    <h4>June 6, 2016</h4>
+				                                    <h4 class="subheading">TubeMogul</h4>
+				                                </div>
+				                                <div class="timeline-body">
+				                                    <p class="text-muted">Over the summer of 2016, I worked at TubeMogul as a Software Engineering Intern. It was amazing seeing the huge codebase of a medium sized company and a cool experience to have my code pushed to production to teach tousands of requests per minute.</p>
+				                                </div>
+				                            </div>
+				                        </li>
+
+
+				                        <li class="timeline-inverted">
+				                            <div class="timeline-image">
+				                            	<img class="img-circle img-responsive" src="{% static 'timeline/images/continue.png' %}" alt="" style="height:100%">
+				                            </div>
+				                        </li>
+				                    </ul>
+				                </div>
+				            </div>
+				        </div>
+				</section>
+			</section>
+
+		<!-- Scripts -->
+			<script src="{% static 'mainPage/assets/js/skel.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/jquery.scrollex.min.js' %}"></script>
+			<script src="{% static 'mainPage/assets/js/util.js' %}"></script>
+			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+			<script src="{% static 'mainPage/assets/js/main.js' %}"></script>
+
+	</body>
+</html>

@@ -20,7 +20,9 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-	url(r'^$', include('mainPage.urls')),
-    url(r'^admin/$', include(admin.site.urls)),
-    url(r'^photos/$', include('photos.urls')),
+	url(r'^$', include('mainPage.urls', namespace='mainPage')),
+    url(r'^admin/', include(admin.site.urls)),
+    url(r'^photos/$', include('photos.urls', namespace='photos')),
+    url(r'^about/$', include('timeline.urls', namespace='about')),
+    url(r'^blog/$', include('blog.urls', namespace='blog')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
