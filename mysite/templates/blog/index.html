@@ -67,10 +67,10 @@
 											</div>
 											<div class="meta">
 												<time class="published" datetime="2015-11-01">{{ post.date }}</time>
-												{{ post.author }} <img src="images/avatar.jpg" alt="" /> 
+												<span class="author"> &nbsp {{ post.author }} &nbsp <img src="{{ post.author_image.url }}" alt="" style="width: 3.5em;border-radius: 100%;"/> </span> 
 											</div>
 										</header>
-										<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
+										<a class="fimage featured"><img src="{{ post.post_image.url }}" alt="" style="object-fit: cover;height:30em"/></a>
 										<p>{{ post.body }}</p>
 									</article>
 									{% endfor %}

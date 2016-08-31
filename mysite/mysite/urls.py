@@ -26,3 +26,4 @@ urlpatterns = [
     url(r'^about/$', include('timeline.urls', namespace='about')),
     url(r'^blog/$', include('blog.urls', namespace='blog')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
