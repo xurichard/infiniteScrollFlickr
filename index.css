@@ -52,17 +52,6 @@ html { overflow-y: scroll; }
 
 body { font-family: sans-serif; }
 
-
-.container {
-  background: #DDD;
-}
-
-.container:after {
-  content: '';
-  display: block;
-  clear: both;
-}
-
 .item {
   float: left;
   width: 33%;
