@@ -2,7 +2,7 @@
 
 var all_photos = []
 
-var flickerAPI = "https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=41dd3aff041c00c52febdef9786a9ca0&user_id=139169754@N02&format=json&nojsoncallback=1";
+var flickerAPI = "https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=FLICKR_API_KEY&user_id=FLICKR_USER_ID&format=json&nojsoncallback=1";
 $.getJSON(flickerAPI, {
   format: "json"
 }, function( data ) {
@@ -13,7 +13,7 @@ $.getJSON(flickerAPI, {
 
 
 function setAllPhotos(page_num){
-  flickerAPI= "https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=41dd3aff041c00c52febdef9786a9ca0&user_id=139169754@N02&format=json&nojsoncallback=1&page=" + page_num;
+  flickerAPI= "https://api.flickr.com/services/rest/?&method=flickr.people.getPhotos&api_key=FLICKR_API_KEY&user_id=FLICKR_USER_ID&format=json&nojsoncallback=1&page=" + page_num;
   $.getJSON(flickerAPI, {
   format: "json"
   }, function( data ) {
